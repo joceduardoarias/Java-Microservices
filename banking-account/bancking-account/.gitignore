@@ -36,3 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Maven-specific directories
+.mvn/
+**/target/
+dependency-reduced-pom.xml
+release.properties
+*.releaseBackup
