@@ -1,0 +1,14 @@
+server:
+    port: 5000
+
+spring:
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            database: bankingAccount
+kafka:
+    producer:
+        bootstrap-servers: localhost:9092 # kafka server address
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer # key serializer class
+        value-serializer: org.apache.kafka.common.serialization.JsonSerializer # value serializer class
