@@ -1,13 +1,13 @@
-package com.banking.account.query;
+package com.banking.account.cmd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class CommandApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(CommandApplication.class, args);
 	}
 
 }
