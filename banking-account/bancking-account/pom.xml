@@ -4,20 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bancking</groupId>
-    <artifactId>bancking-account</artifactId>
+    <groupId>com.banking</groupId>
+    <artifactId>banking-account</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <modules>
         <module>../cqrs-es/cqrs.core</module>
-        <module>account.cmd</module>
         <module>account.common</module>
+        <module>account.cmd</module>
         <module>account.query</module>
     </modules>
+
 </project>
