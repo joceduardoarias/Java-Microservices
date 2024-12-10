@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @SuperBuilder
 public class AccountOpenedEvent extends BaseEvent {
-    private String accountHolderId;
+    private String accountHolder;
     private AccountType accountType;
     private Date createdDate;
     private double openingBalance;
