@@ -8,8 +8,8 @@ spring:
       ddl-auto: update
   datasource:
     url: jdbc:mysql://localhost:3306/bankingAccount?createDatabaseIfNotExist=true
-    username: root
-    password: root
+    username: ariasmj
+    password: ariasmj2024
 kafka:
   listener:
     ack-mode: manual_immediate
