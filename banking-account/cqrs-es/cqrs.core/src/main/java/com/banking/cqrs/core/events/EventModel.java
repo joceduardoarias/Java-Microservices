@@ -5,6 +5,8 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @Builder
 @Document(collection = "eventStore")
@@ -15,5 +17,6 @@ public class EventModel {
     private String aggregateType;
     private String eventType;
     private BaseEvent eventData;
+    private Date timestamp;
     private long version;
 }
