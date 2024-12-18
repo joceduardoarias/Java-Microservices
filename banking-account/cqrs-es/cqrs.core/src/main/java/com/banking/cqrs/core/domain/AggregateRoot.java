@@ -15,16 +15,16 @@ import java.util.logging.Logger;
 public abstract class AggregateRoot {
 
     protected String id;
-    private int version = -1;
+    private long version = -1;
 
     private final List<BaseEvent> changes = new ArrayList<>();
     private final Logger logger = Logger.getLogger(AggregateRoot.class.getName());
 
-    public int getVersion() {
+    public long getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(long version) {
         this.version = version;
     }
 
