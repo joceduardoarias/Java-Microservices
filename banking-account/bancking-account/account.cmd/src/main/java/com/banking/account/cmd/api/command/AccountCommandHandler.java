@@ -3,7 +3,9 @@ package com.banking.account.cmd.api.command;
 import com.banking.account.cmd.domain.AccountAggregate;
 import com.banking.cqrs.core.handlers.EventSourcingHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AccountCommandHandler implements CommandHanlder {
     @Autowired
     private EventSourcingHandler<AccountAggregate> eventSourcingHandler;
