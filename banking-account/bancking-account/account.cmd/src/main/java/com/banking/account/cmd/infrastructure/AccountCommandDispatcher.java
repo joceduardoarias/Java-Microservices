@@ -5,6 +5,7 @@ import com.banking.cqrs.core.commands.BaseCommand;
 import com.banking.cqrs.core.commands.CommandHandlerMethod;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class AccountCommandDispatcher implements CommandDispatcher {
     @Override
     public <T extends BaseCommand> void registerHandler(Class<T> commandType, CommandHandlerMethod<T> handler) {
         // Aquí se registra el handler para el comando
-        var handlers = routes.computeIfAbsent(commandType, c -> List.of());
+        var handlers = routes.computeIfAbsent(commandType, c -> new ArrayList<>());
         handlers.add(handler);
     }
 
