@@ -7,7 +7,9 @@ import com.banking.account.common.events.FundsWithdrawnEvent;
 import com.banking.account.query.domain.AccountRepository;
 import com.banking.account.query.domain.BankAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AccountEventHandler implements EventHandler{
     @Autowired
     private AccountRepository accountRepository;
