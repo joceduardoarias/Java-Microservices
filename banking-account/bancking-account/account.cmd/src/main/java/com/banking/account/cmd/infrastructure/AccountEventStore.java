@@ -17,6 +17,10 @@ public class AccountEventStore implements EventStore {
 
     @Autowired
     private EventStoreRepository eventStoreRepository;
+
+    @Autowired
+    private AccountEventProducer accountEventProducer;
+
     @Override
     public void save(String aggregateId, Iterable<BaseEvent> events, long version) {
         var evenStream = eventStoreRepository.findByAggregateId(aggregateId);
@@ -36,8 +40,10 @@ public class AccountEventStore implements EventStore {
                     .eventData(event)
                     .build();
             var persistedEvent = eventStoreRepository.save(eventModel);
-            if (persistedEvent != null) {
+
+            if (!persistedEvent.getId().isEmpty()) {
                 System.out.println("Event persisted call kafka");
+                accountEventProducer.produceEvent(event.getClass().getSimpleName(), event); // Kafka - Topic es el nombre de la clase que genera el evento
             }
         }
 
