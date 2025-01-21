@@ -3,7 +3,7 @@ package com.banking.account.cmd.domain;
 import com.banking.account.cmd.api.command.OpenAccountCommand;
 import com.banking.account.common.events.AccountClosedEvent;
 import com.banking.account.common.events.AccountOpenedEvent;
-import com.banking.account.common.events.FoundsWithdrawnEvent;
+import com.banking.account.common.events.FundsWithdrawnEvent;
 import com.banking.account.common.events.FundsDepositedEvent;
 import com.banking.cqrs.core.domain.AggregateRoot;
 import lombok.NoArgsConstructor;
@@ -71,7 +71,7 @@ public class AccountAggregate extends AggregateRoot {
                 .build());
     }
 
-    public void apply(FoundsWithdrawnEvent event) {
+    public void apply(FundsWithdrawnEvent event) {
         this.id = event.getId();
         this.balance -= event.getAmount();
     }
