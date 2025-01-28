@@ -4,11 +4,10 @@ server:
 spring:
     data:
         mongodb:
-            host: localhost
-            port: 27017
-            database: bankingAccount
+            uri: mongodb://ariasmj:Ariasmj2024$@localhost:27017/bankingAccount?authSource=admin # mongodb server address
+
 kafka:
+    bootstrap-servers: localhost:9092 # kafka server address
     producer:
-        bootstrap-servers: localhost:9092 # kafka server address
         key-serializer: org.apache.kafka.common.serialization.StringSerializer # key serializer class
-        value-serializer: org.apache.kafka.common.serialization.JsonSerializer # value serializer class
+        value-serializer: com.banking.account.cmd.infrastructure.EventSerializer # value serializer class
