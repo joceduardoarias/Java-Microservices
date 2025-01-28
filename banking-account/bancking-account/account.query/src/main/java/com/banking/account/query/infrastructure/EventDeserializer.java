@@ -1,6 +1,7 @@
 package com.banking.account.query.infrastructure;
 
 import com.banking.account.common.events.AccountOpenedEvent; // Importa tus eventos aquí
+import com.banking.account.common.events.FundsDepositedEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
@@ -16,6 +17,7 @@ public class EventDeserializer<T> implements Deserializer<T> {
     public EventDeserializer() {
         // Registra los tipos de eventos que el deserializador debe manejar
         eventTypeMapping.put("AccountOpenedEvent", AccountOpenedEvent.class);
+        eventTypeMapping.put("FundsDepositedEvent", FundsDepositedEvent.class);
         // Agrega más tipos si tienes otros eventos
     }
 
