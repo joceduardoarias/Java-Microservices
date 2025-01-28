@@ -53,7 +53,6 @@ public abstract class AggregateRoot {
                 this.changes.add(event);
             }
         }
-        this.applyChange(event, isNewEvent);
     }
 
     public void raiseEvent(BaseEvent event) {
