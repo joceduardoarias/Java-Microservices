@@ -9,16 +9,29 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 
+import java.util.logging.Logger;
+
 @Service
 public class AccountEventSourcingHandler implements EventSourcingHandler<AccountAggregate> {
 
     @Autowired
     private EventStore eventStore;
 
+    private static final Logger logger = Logger.getLogger(AccountEventSourcingHandler.class.getName());
+
     @Override
     public void save(AggregateRoot aggregateRoot) {
-        eventStore.save(aggregateRoot.getId(),aggregateRoot.getUncommitedChanges(),aggregateRoot.getVersion());
-        aggregateRoot.markChangesAsCommitted();
+        try {
+            eventStore.save(aggregateRoot.getId(), aggregateRoot.getUncommitedChanges(), aggregateRoot.getVersion());
+            aggregateRoot.markChangesAsCommitted();
+        } catch (Exception e) {
+            // Registrar el error con un nivel SEVERE
+            logger.severe("Error al guardar el agregado con ID: " + aggregateRoot.getId());
+            logger.severe("Detalles: " + e.getMessage());
+
+            // Relanzar la excepción si es necesario
+            throw new RuntimeException("Error al guardar en EventStore", e);
+        }
     }
 
     @Override

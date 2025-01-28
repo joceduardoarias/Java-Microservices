@@ -4,6 +4,7 @@ import com.banking.account.cmd.domain.EventStoreRepository;
 import com.banking.cqrs.core.Infrastructure.EventStore;
 import com.banking.cqrs.core.events.BaseEvent;
 import com.banking.cqrs.core.events.EventModel;
+import com.banking.cqrs.core.producers.EventProducer;
 import exceptions.AggregateNotFoundException;
 import exceptions.ConcurrencyException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class AccountEventStore implements EventStore {
     private EventStoreRepository eventStoreRepository;
 
     @Autowired
-    private AccountEventProducer accountEventProducer;
+    private EventProducer accountEventProducer;
 
     @Override
     public void save(String aggregateId, Iterable<BaseEvent> events, long version) {
