@@ -18,6 +18,7 @@ public class EventDeserializer<T> implements Deserializer<T> {
         // Registra los tipos de eventos que el deserializador debe manejar
         eventTypeMapping.put("AccountOpenedEvent", AccountOpenedEvent.class);
         eventTypeMapping.put("FundsDepositedEvent", FundsDepositedEvent.class);
+        eventTypeMapping.put("FundsWithdrawnEvent", FundsDepositedEvent.class);
         // Agrega más tipos si tienes otros eventos
     }
 
