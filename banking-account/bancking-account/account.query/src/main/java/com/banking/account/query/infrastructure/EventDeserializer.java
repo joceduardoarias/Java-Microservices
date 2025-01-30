@@ -1,5 +1,6 @@
 package com.banking.account.query.infrastructure;
 
+import com.banking.account.common.events.AccountClosedEvent;
 import com.banking.account.common.events.AccountOpenedEvent; // Importa tus eventos aquí
 import com.banking.account.common.events.FundsDepositedEvent;
 import com.banking.account.common.events.FundsWithdrawnEvent;
@@ -20,6 +21,7 @@ public class EventDeserializer<T> implements Deserializer<T> {
         eventTypeMapping.put("AccountOpenedEvent", AccountOpenedEvent.class);
         eventTypeMapping.put("FundsDepositedEvent", FundsDepositedEvent.class);
         eventTypeMapping.put("FundsWithdrawnEvent", FundsWithdrawnEvent.class);
+        eventTypeMapping.put("AccountClosedEvent", AccountClosedEvent.class);
         // Agrega más tipos si tienes otros eventos
     }
 

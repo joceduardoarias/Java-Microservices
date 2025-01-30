@@ -19,7 +19,7 @@ public class CloseAccountController {
     @Autowired
     private CommandDispatcher commandDispatcher;
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> closeAccount(@PathVariable("id") String id) {
         logger.info("Received close account command request");
         try {
