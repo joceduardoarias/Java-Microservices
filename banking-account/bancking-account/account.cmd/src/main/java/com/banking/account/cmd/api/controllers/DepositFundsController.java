@@ -19,7 +19,7 @@ public class DepositFundsController {
     @Autowired
     private CommandDispatcher commandDispatcher;
 
-    @PostMapping
+    @PutMapping("/{id}")
     public ResponseEntity<?> depositFunds(@PathVariable String id, @RequestBody DepositFundsCommand command) {
         try {
             logger.info("Received deposit funds command request");

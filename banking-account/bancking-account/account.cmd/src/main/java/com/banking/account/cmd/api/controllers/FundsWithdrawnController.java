@@ -19,7 +19,7 @@ public class FundsWithdrawnController {
     @Autowired
     private CommandDispatcher commandDispatcher;
 
-    @PostMapping
+    @PutMapping("/{id}")
     public ResponseEntity<?> withdrawFunds(@PathVariable String id, @RequestBody WithdrawFundsCommand command) {
         try {
             logger.info("Received withdraw funds command request");

@@ -65,7 +65,7 @@ public class AccountAggregate extends AggregateRoot {
         if (amount > this.balance) {
             throw new IllegalArgumentException("Insufficient funds");
         }
-        raiseEvent(FundsDepositedEvent.builder()
+        raiseEvent(FundsWithdrawnEvent.builder()
                 .id(this.id)
                 .amount(amount)
                 .build());
